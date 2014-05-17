@@ -43,7 +43,7 @@ The chromosomes are selected in a manner that those with a higher fitness are mo
 
 The crossover is analogous to biological “mating” of species. Our virtual chromosomes, however, are not double helices but a single strands of binary. The crossover function takes two “parents” and creates a new chromosome by splicing parts of one with parts of another. These are two examples of crossover types:
 
-![Image](file:/images/crossover.png)
+![Image](https://raw.githubusercontent.com/KendallPark/genetic-algorithm/master/images/crossover.png)
 
 I used single point crossover for my implementation. For each set of parents a random pivot point is chosen and the bits up to that pivot point are exchanged, creating two new child chromosomes. I also chose to do 100% crossover for simplicity (aside from the elite chromosome). Some genetic algorithms with 85% crossover, for example, will copy 15% of the old population to the new population. 
 
@@ -51,7 +51,7 @@ I used single point crossover for my implementation. For each set of parents a r
 
 The mutation function, like random mutations in nature, keeps our populations genetically diverse. In our algorithm, mutations keep our succession of generations from converging at a local maximum. The mutation function goes through every bit of the new chromosomes and calculates whether to flip the bit based on a small probability.
 
-![Image](file:/images/mutation.png)
+![Image](https://raw.githubusercontent.com/KendallPark/genetic-algorithm/master/images/mutation.png)
 
 I chose a 1% probability for mutation based on experimentation. Having too large a mutation probability will cause the generations to be genetically unstable, and it will take longer to converge on a solution. (Remember that 100% mutation is essentially generating a random chromosome.) Too low of a mutation rate will keep the population locked in the genetic possibilities of the first generation.
 
@@ -64,7 +64,7 @@ After being generated, the new population replaces the old population. The fitne
 
 Because I specified the maximum number of generations, the complexity of my program has an polynomial O(n) upper bound. Generating the initial population takes O(n). Both the crossover and mutation functions iterate over each chromosome once, taking O(n) time multiplied by the constant of the population size. Therefore the the loop takes O(n) time. This loop will run a maximum of 10*n times, making the total complexity of my algorithm O(n2). This aligns with my experimentation on the running time. I ran 10 trials, with n = 10, 20, ... 100. Each trial consisted of 10 sets of randomly generated inputs of size n, and input was then tested 10 times. An average of the running time was taking over the 10 repetitions of the 10 sets for each trial. The average deviation and percent deviation of the solutions was also calculated for each set. 
 
-![Image](file:/images/runtime_vs_input_size.png)
+![Image](https://raw.githubusercontent.com/KendallPark/genetic-algorithm/master/images/runtime_vs_input_size.png)
 
 As we can see, the running time exhibits a power curve. The best fit power curve calculates an approximate actual running time of n1.7 which is within our O(n^2) bound.
 
@@ -73,11 +73,11 @@ As we can see, the running time exhibits a power curve. The best fit power curve
 
 Because our genetic 0-1 knapsack algorithm is an approximation, an important thing to note is the average deviation of the generated solutions at different input sizes. 
 
-![Image](percent_deviation_with_outliers.png)
+![Image](https://raw.githubusercontent.com/KendallPark/genetic-algorithm/master/images/percent_deviation_with_outliers.png)
 
 I found that whenever the maximum weight for the knapsack was very small (with a solution of mostly 0's) the average deviation could be up to 42%. This is most likely due to the way all chromosomes are altered so that they fit under under the maximum weight before the new population is generated. One potential way to tackle this in the future would be to allow for chromosome with above-maximum weights to exist in the population, but with just a higher fitness penalty for exceeding the limit. After removing the obvious outliers, our percent deviation is as follows:
 
-![Image](percent_deviation_without_outliers.png)
+![Image](https://raw.githubusercontent.com/KendallPark/genetic-algorithm/master/images/percent_deviation_without_outliers.png)
 
 ## Conclusions
 
