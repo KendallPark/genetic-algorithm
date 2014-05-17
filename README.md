@@ -75,7 +75,7 @@ Because our genetic 0-1 knapsack algorithm is an approximation, an important thi
 
 ![Image](https://raw.githubusercontent.com/KendallPark/genetic-algorithm/master/images/percent_deviation_with_outliers.png)
 
-I found that whenever the maximum weight for the knapsack was very small (with a solution of mostly 0's) the average deviation could be up to 42%. This is most likely due to the way all chromosomes are altered so that they fit under under the maximum weight before the new population is generated. One potential way to tackle this in the future would be to allow for chromosome with above-maximum weights to exist in the population, but with just a higher fitness penalty for exceeding the limit. After removing the obvious outliers, our percent deviation is as follows:
+I found that whenever the maximum weight for the knapsack was very small (with a solution of mostly 0's) the average deviation could be up to 42%. This is most likely due to the way all chromosomes are altered so that they fit under the maximum weight before the new population is generated. One potential way to tackle this in the future would be to allow for chromosome with above-maximum weights to exist in the population, but with just a higher fitness penalty for exceeding the limit. After removing the obvious outliers, our percent deviation is as follows:
 
 ![Image](https://raw.githubusercontent.com/KendallPark/genetic-algorithm/master/images/percent_deviation_without_outliers.png)
 
