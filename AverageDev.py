@@ -5,24 +5,24 @@
 import math 
 
 def avgDev(values) :
-	sum = 0.0;
-	for value in values :
-		sum+=value
-	mean = sum/len(values)
-	
-	i = 0
-	avgDev = []
-	while i < len(values):
-		avgDev.append( abs(mean - values[i]) )
-		i+=1
-	
-	sum = 0.0
-	for dev in avgDev: 
-		sum+=dev
-	avgDevMean = sum/len(avgDev)
-	
-	return "Mean: "+str(mean)+" \nAvg Dev: "+str(avgDevMean)+" \nPercent Dev "+str(avgDevMean/mean*100)+"%"
-	
+  sum = 0.0;
+  for value in values :
+    sum+=value
+  mean = sum/len(values)
+  
+  i = 0
+  avgDev = []
+  while i < len(values):
+    avgDev.append( abs(mean - values[i]) )
+    i+=1
+  
+  sum = 0.0
+  for dev in avgDev: 
+    sum+=dev
+  avgDevMean = sum/len(avgDev)
+  
+  return "Mean: "+str(mean)+" \nAvg Dev: "+str(avgDevMean)+" \nPercent Dev "+str(avgDevMean/mean*100)+"%"
+  
 HCl = [-59.9, -59.4, -58.0]
 
 Acetic = [-51.7, -51.5, -50.9]
